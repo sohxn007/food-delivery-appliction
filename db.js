@@ -1,11 +1,6 @@
-import mongoose from "mongoose";
+import postgres from 'postgres'
 
-export const  connectDB = async () =>{
+const connectionString = process.env.DATABASE_URL
+const sql = postgres(connectionString)
 
-    await mongoose.connect('{ Add your mongodb URI Here }/food-del').then(()=>console.log("DB Connected"));
-   
-}
-
-
-// add your mongoDB connection string above.
-// Do not use '@' symbol in your databse user's password else it will show an error.
+export default sql
